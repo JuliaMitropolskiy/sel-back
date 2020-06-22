@@ -39,8 +39,8 @@ public class OffreController {
 		return offreService
 		.getAllOffres()
 		.stream()
-		.map(o -> new OffreDto(o.getId(), o.getTitre(), o.getText(), o.getUser().getId(), o.getDateCreation(), 
-				o.getPhotoLien(), o.getRubrique(), o.getRubrique().getCategory()))
+		.map(o -> new OffreDto(o.getId(), o.getTitre(), o.getText(), o.getUser().getId(), o.getUser().getPrenom(), o.getUser().getCommune(),
+				o.getDateCreation(), o.getPhotoLien(), o.getRubrique(), o.getRubrique().getCategory()))
 		.collect(toList());
 	}
 	

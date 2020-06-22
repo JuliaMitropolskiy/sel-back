@@ -13,6 +13,8 @@ public class OffreDto {
 	private String titre;
 	private String text;
 	private Long userId;
+	private String userPrenom;
+	private String userCommune;
 	private LocalDate dateCreation;
 	private String photoLien;
 	private Rubrique rubrique;
@@ -20,12 +22,14 @@ public class OffreDto {
 	
 	public OffreDto() {}
 	
-	public OffreDto(Long id, String titre, String text, Long userId, LocalDate dateCreation, String photoLien,
-			Rubrique rubrique, Category category) {
+	public OffreDto(Long id, String titre, String text, Long userId, String userPrenom, String userCommune,
+			LocalDate dateCreation, String photoLien, Rubrique rubrique, Category category) {
 		this.id = id;
 		this.titre = titre;
 		this.text = text;
 		this.userId = userId;
+		this.userPrenom = userPrenom;
+		this.userCommune = userCommune;
 		this.dateCreation = dateCreation;
 		this.photoLien = photoLien;
 		this.rubrique = rubrique;
@@ -74,6 +78,22 @@ public class OffreDto {
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+
+	public String getUserPrenom() {
+		return userPrenom;
+	}
+
+	public void setUserPrenom(String userPrenom) {
+		this.userPrenom = userPrenom;
+	}
+
+	public String getUserCommune() {
+		return userCommune;
+	}
+
+	public void setUserCommune(String userCommune) {
+		this.userCommune = userCommune;
 	}
 
 	public LocalDate getDateCreation() {
