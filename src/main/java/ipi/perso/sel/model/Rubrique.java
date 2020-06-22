@@ -1,6 +1,5 @@
 package ipi.perso.sel.model;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,6 +26,8 @@ public class Rubrique {
     
     /*@OneToMany(mappedBy = "rubrique")
     private List<Offre> offres;*/
+    
+    public Rubrique() {}
 
     public Rubrique(int code, String libelle, Category category) {
         this.code = code;

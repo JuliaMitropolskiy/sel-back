@@ -18,6 +18,8 @@ public class Category {
     
     /*@OneToMany(mappedBy = "category")
     private List<Rubrique> rubriques;*/
+    
+    public Category() {}
 
     public Category(int code, String libelle) {
         this.categoryCode = code;
