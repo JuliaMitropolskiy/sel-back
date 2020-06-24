@@ -4,13 +4,19 @@ import static java.util.stream.Collectors.toList;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -22,8 +28,8 @@ import ipi.perso.sel.model.Rubrique;
 import ipi.perso.sel.service.OffreService;
 import ipi.perso.sel.service.PublicationService;
 
-@RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@RestController
 @RequestMapping("/offres")
 public class OffreController {
 	
@@ -46,8 +52,18 @@ public class OffreController {
 	
 	@GetMapping("/{id}")
     @ResponseBody
-    public Offre getAnnonce(@PathVariable("id") Long id) {
+    public Offre getOffre(@PathVariable("id") Long id) {
     	return offreService.findOffreById(id);
     }
+	
+	@PostMapping("/new")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void createOffre(@RequestBody Map<String, String> json) {
+		String titre = json.get("titre");
+		String text = json.get("text");
+		Long userId = Long.parseLong(json.get("userId"));
+		int rubriqueId = Integer.parseInt(json.get("rubriqueId"));
+		offreService.createOffre(titre, text, userId, rubriqueId);
+	}
 
 }

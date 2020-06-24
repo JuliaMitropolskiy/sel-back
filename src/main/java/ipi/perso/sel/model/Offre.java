@@ -21,6 +21,12 @@ public class Offre extends Publication {
 		this.rubrique = rubrique;
 	}
 	
+	public Offre(Long id, String titre, String text, User user, LocalDate dateCreation, String photoLien, Rubrique rubrique) {
+		super(id, titre, text, user, dateCreation);
+		this.rubrique = rubrique;
+	}
+
+	
 
 	public Rubrique getRubrique() {
         return rubrique;
