@@ -56,6 +56,17 @@ public class OffreController {
     	return offreService.findOffreById(id);
     }
 	
+	@GetMapping("/users/{id}")
+	@ResponseBody
+	public List<OffreDto> getOffresByUser(@PathVariable("id") Long userId) {
+		return offreService
+				.findAllByUserId(userId)
+				.stream()
+				.map(o -> new OffreDto(o.getId(), o.getTitre(), o.getText(), o.getUser().getId(), o.getUser().getPrenom(), o.getUser().getCommune(),
+						o.getDateCreation(), o.getPhotoLien(), o.getRubrique(), o.getRubrique().getCategory()))
+				.collect(toList());
+	}
+	
 	@PostMapping("/new")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createOffre(@RequestBody Map<String, String> json) {

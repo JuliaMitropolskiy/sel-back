@@ -40,6 +40,11 @@ public class OffreService {
     	return offre.get();
     }
 	
+	public List<Offre> findAllByUserId(Long userId) {
+		User user = userService.findUserById(userId);
+		return offreRepository.findByUser(user);
+	}
+	
 	public void createOffre(String titre, String text, Long userId, int rubriqueId) {
 		User user = userService.findUserById(userId);
 		LocalDate dateCreation = LocalDate.now();
