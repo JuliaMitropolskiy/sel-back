@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 public class Category {
 
     @Id
-	private int categoryCode;
+	private Integer id;
 
     @Column(columnDefinition = "VARCHAR(100)")
     private String libelle;
@@ -21,17 +21,17 @@ public class Category {
     
     public Category() {}
 
-    public Category(int code, String libelle) {
-        this.categoryCode = code;
+    public Category(Integer id, String libelle) {
+        this.id = id;
         this.libelle = libelle;
     }
 
-    public int getCategoryCode() {
-        return categoryCode;
+    public int getId() {
+        return id;
     }
 
-    public void setCategoryCode(int categoryCode) {
-        this.categoryCode = categoryCode;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLibelle() {

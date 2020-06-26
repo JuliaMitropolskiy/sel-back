@@ -49,8 +49,7 @@ public class OffreService {
 		User user = userService.findUserById(userId);
 		LocalDate dateCreation = LocalDate.now();
 		Rubrique rubrique = rubriqueRepository.findById(rubriqueId).get();
-		String photoLien = "";
-		Offre newOffre = new Offre(null, titre, text, user, dateCreation, photoLien, rubrique);
+		Offre newOffre = new Offre(titre, text, user, dateCreation, rubrique);
 		offreRepository.save(newOffre);
 	}
 

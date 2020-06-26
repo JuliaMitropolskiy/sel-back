@@ -10,22 +10,15 @@ import javax.persistence.ManyToOne;
 public class Offre extends Publication {
 
 	@ManyToOne
-    @JoinColumn(name = "code")
+    @JoinColumn(name = "rubrique_id")
 	private Rubrique rubrique;
 
-    
     public Offre() {}
 
-	public Offre(Long id, String titre, String text, User user, LocalDate dateCreation, Rubrique rubrique) {
-		super(id, titre, text, user, dateCreation);
+	public Offre(String titre, String text, User user, LocalDate dateCreation, Rubrique rubrique) {
+		super(titre, text, user, dateCreation);
 		this.rubrique = rubrique;
 	}
-	
-	public Offre(Long id, String titre, String text, User user, LocalDate dateCreation, String photoLien, Rubrique rubrique) {
-		super(id, titre, text, user, dateCreation);
-		this.rubrique = rubrique;
-	}
-
 	
 
 	public Rubrique getRubrique() {

@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import java.time.LocalDate;
 
 @Entity
@@ -13,27 +16,44 @@ public class Echange {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long idEmetteur;
+    @ManyToOne
+    @JoinColumn(name = "emetteur_id")
+    private User emetteur;
 
-    private Long idBeneficiaire;
+    @ManyToOne
+    @JoinColumn(name = "beneficiaire_id")
+    private User beneficiaire;
 
     private LocalDate dateEchange;
 
-    private int category;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     private Integer minutes;
+    
+    private String message;
 
     public Echange() {
     }
 
-    public Echange(Long id, Long idEmetteur, Long idBeneficiaire, LocalDate dateEchange, int category, Integer minutes) {
-        this.id = id;
-        this.idEmetteur = idEmetteur;
-        this.idBeneficiaire = idBeneficiaire;
+    public Echange(User emetteur, User beneficiaire, LocalDate dateEchange, Category category, Integer minutes) {
+        this.emetteur = emetteur;
+        this.beneficiaire = beneficiaire;
         this.dateEchange = dateEchange;
         this.category = category;
         this.minutes = minutes;
     }
+    
+    public Echange(User emetteur, User beneficiaire, LocalDate dateEchange, Category category, Integer minutes, String message) {
+        this.emetteur = emetteur;
+        this.beneficiaire = beneficiaire;
+        this.dateEchange = dateEchange;
+        this.category = category;
+        this.minutes = minutes;
+        this.message = message;
+    }
+
 
     public Long getId() {
         return id;
@@ -43,20 +63,20 @@ public class Echange {
         this.id = id;
     }
 
-    public Long getIdEmetteur() {
-        return idEmetteur;
+    public User getEmetteur() {
+        return emetteur;
     }
 
-    public void setIdEmetteur(Long idEmetteur) {
-        this.idEmetteur = idEmetteur;
+    public void setEmetteur(User emetteur) {
+        this.emetteur = emetteur;
     }
 
-    public Long getIdBeneficiaire() {
-        return idBeneficiaire;
+    public User getBeneficiaire() {
+        return beneficiaire;
     }
 
-    public void setIdBeneficiaire(Long idBeneficiaire) {
-        this.idBeneficiaire = idBeneficiaire;
+    public void setBeneficiaire(User beneficiaire) {
+        this.beneficiaire = beneficiaire;
     }
 
     public LocalDate getDateEchange() {
@@ -67,11 +87,11 @@ public class Echange {
         this.dateEchange = dateEchange;
     }
 
-    public int getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -82,4 +102,12 @@ public class Echange {
     public void setMinutes(Integer minutes) {
         this.minutes = minutes;
     }
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 }

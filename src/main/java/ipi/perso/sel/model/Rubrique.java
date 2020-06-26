@@ -14,14 +14,14 @@ import com.sun.istack.NotNull;
 public class Rubrique {
 
     @Id
-	private int code;
+	private int id;
 
     @NotNull
     @Column(columnDefinition = "VARCHAR(255)")
     private String libelle;
     
     @ManyToOne
-    @JoinColumn(name = "category_code")
+    @JoinColumn(name = "category_id")
     private Category category;
     
     /*@OneToMany(mappedBy = "rubrique")
@@ -29,18 +29,18 @@ public class Rubrique {
     
     public Rubrique() {}
 
-    public Rubrique(int code, String libelle, Category category) {
-        this.code = code;
+    public Rubrique(int id, String libelle, Category category) {
+        this.id = id;
         this.libelle = libelle;
         this.category = category;
     }
 
-    public int getCode() {
-        return code;
+    public int getId() {
+        return id;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLibelle() {

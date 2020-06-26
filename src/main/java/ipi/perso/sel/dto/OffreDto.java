@@ -13,40 +13,28 @@ public class OffreDto {
 	private String titre;
 	private String text;
 	private Long userId;
+	private String userNom;
 	private String userPrenom;
 	private String userCommune;
 	private LocalDate dateCreation;
-	private String photoLien;
 	private Rubrique rubrique;
 	private Category category;
 	
 	public OffreDto() {}
 	
-	public OffreDto(Long id, String titre, String text, Long userId, String userPrenom, String userCommune,
-			LocalDate dateCreation, String photoLien, Rubrique rubrique, Category category) {
+	public OffreDto(Long id, String titre, String text, Long userId, String userNom, String userPrenom, String userCommune,
+			LocalDate dateCreation, Rubrique rubrique, Category category) {
 		this.id = id;
 		this.titre = titre;
 		this.text = text;
 		this.userId = userId;
+		this.setUserNom(userNom);
 		this.userPrenom = userPrenom;
 		this.userCommune = userCommune;
 		this.dateCreation = dateCreation;
-		this.photoLien = photoLien;
 		this.rubrique = rubrique;
 		this.category = category;
 	}
-
-//	public OffreDto(Object offre) {
-//		this.id = ((OffreDto) offre).getId();
-//		this.titre = ((OffreDto) offre).getTitre();
-//		this.text = ((OffreDto) offre).getText();
-//		this.userId = ((OffreDto) offre).getUserId().getId();
-//		this.dateCreation = ((OffreDto) offre).getDateCreation();
-//		this.photoLien = ((OffreDto) offre).getPhotoLien();
-//		this.rubrique = ((OffreDto) offre).getRubrique();
-//		this.category = ((OffreDto) offre).getRubrique().getCategory();
-//
-//	}
 
 	public Long getId() {
 		return id;
@@ -80,6 +68,14 @@ public class OffreDto {
 		this.userId = userId;
 	}
 
+	public String getUserNom() {
+		return userNom;
+	}
+
+	public void setUserNom(String userNom) {
+		this.userNom = userNom;
+	}
+
 	public String getUserPrenom() {
 		return userPrenom;
 	}
@@ -102,14 +98,6 @@ public class OffreDto {
 
 	public void setDateCreation(LocalDate dateCreation) {
 		this.dateCreation = dateCreation;
-	}
-
-	public String getPhotoLien() {
-		return photoLien;
-	}
-
-	public void setPhotoLien(String photoLien) {
-		this.photoLien = photoLien;
 	}
 
 	public Rubrique getRubrique() {
