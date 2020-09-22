@@ -1,10 +1,13 @@
 package ipi.perso.sel.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import ipi.perso.sel.model.User;
@@ -56,4 +59,11 @@ public class UserService {
     	}
     	return user.get();
     }
+    
+    public Iterable<User> findAll() {
+    	Sort sort = Sort.by(Direction.ASC, "Prenom");
+    	System.out.println(userRepository.findAll());
+    	return userRepository.findAll(sort);
+    }
+    
 }

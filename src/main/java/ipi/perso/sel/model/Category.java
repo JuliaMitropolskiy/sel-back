@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 public class Category {
 
     @Id
-	private Integer id;
+	private int id;
 
     @Column(columnDefinition = "VARCHAR(100)")
     private String libelle;
@@ -21,7 +21,7 @@ public class Category {
     
     public Category() {}
 
-    public Category(Integer id, String libelle) {
+    public Category(int id, String libelle) {
         this.id = id;
         this.libelle = libelle;
     }
