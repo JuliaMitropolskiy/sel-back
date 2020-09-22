@@ -55,5 +55,13 @@ public class UserController {
     public User getUser(@PathVariable("id") Long id) {
     	return userService.findUserById(id);
     }
+    
+    @GetMapping("")
+    @ResponseBody
+    public Iterable<User> getAllUsers() {
+    	System.out.println("coucou");
+    	return userService.findAll();
+    }
+
 
 }

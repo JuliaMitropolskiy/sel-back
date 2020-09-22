@@ -33,27 +33,14 @@ public abstract class Publication {
 	@Column(columnDefinition = "DATE")
 	private LocalDate dateCreation;
 	
-	@Column(columnDefinition = "VARCHAR(100)")
-	private String photoLien;
-	
 
 	public Publication() {}
 	
-	public Publication(Long id, String titre, String text, User user, LocalDate dateCreation) {
-		this.id = id;
+	public Publication(String titre, String text, User user, LocalDate dateCreation) {
 		this.titre = titre;
 		this.text = text;
 		this.user = user;
 		this.dateCreation = dateCreation;
-	}
-	
-	public Publication(Long id, String titre, String text, User user, LocalDate dateCreation, String photoLien) {
-		this.id = id;
-		this.titre = titre;
-		this.text = text;
-		this.user = user;
-		this.dateCreation = dateCreation;
-		this.photoLien = photoLien;
 	}
 
 
@@ -97,14 +84,6 @@ public abstract class Publication {
 		this.dateCreation = dateCreation;
 	}
 
-	public String getPhotoLien() {
-		return photoLien;
-	}
-
-	public void setPhotoLien(String photoLien) {
-		this.photoLien = photoLien;
-	}
-	
 	
 	
 

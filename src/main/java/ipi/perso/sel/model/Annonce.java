@@ -14,8 +14,8 @@ public class Annonce extends Publication {
 
 	public Annonce() {}
 	
-	public Annonce(Long id, String titre, String text, User user, LocalDate dateCreation, TypeAnnonce type) {
-		super(id, titre, text, user, dateCreation);
+	public Annonce(String titre, String text, User user, LocalDate dateCreation, TypeAnnonce type) {
+		super(titre, text, user, dateCreation);
 		this.type = type;
 	}
 	
